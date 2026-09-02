@@ -37,9 +37,12 @@ jobs:
           DISCORD_WEBHOOK_IA: ${{ secrets.DISCORD_WEBHOOK_IA }}
         run: python fetch_rss.py
 
-      - name: Commit & Push updated state
+     - name: Commit & Push updated state
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add seen_articles.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Chore: Update seen articles" && git push)uiet && git diff --staged --quiet || (git commit -m "Chore: Update seen articles" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Chore: Update seen articles"
+            git push
+          fi
