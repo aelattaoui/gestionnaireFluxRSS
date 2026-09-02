@@ -35,6 +35,7 @@ jobs:
           DISCORD_WEBHOOK_OPTIMISATION_SI: ${{ secrets.DISCORD_WEBHOOK_OPTIMISATION_SI }}
           DISCORD_WEBHOOK_SI_ENVIRONNEMENT: ${{ secrets.DISCORD_WEBHOOK_SI_ENVIRONNEMENT }}
           DISCORD_WEBHOOK_IA: ${{ secrets.DISCORD_WEBHOOK_IA }}
+          DISCORD_WEBHOOK_BLOCKCHAIN: ${{ secrets.DISCORD_WEBHOOK_BLOCKCHAIN }}
         run: python fetch_rss.py
 
       - name: Commit & Push updated state
