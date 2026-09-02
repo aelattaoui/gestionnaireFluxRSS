@@ -21,10 +21,15 @@ THEMES_CONFIG = {
 
 
 def load_seen():
-  if os.path.exists(SEEN_FILE):
-    with open(SEEN_FILE, "r", encoding="utf-8") as f:
-      return set(json.load(f))
-  return set()
+    if not os.path.exists(SEEN_FILE):
+        return set()
+    try:
+        with open(SEEN_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return set(data) if isinstance(data, list) else set()
+    except (json.JSONDecodeError, ValueError):
+        # En cas de fichier corrompu, on repart sur un ensemble vide sans crasher
+        return set()
 
 
 def save_seen(seen):
