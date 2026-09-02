@@ -37,7 +37,7 @@ jobs:
           DISCORD_WEBHOOK_IA: ${{ secrets.DISCORD_WEBHOOK_IA }}
         run: python fetch_rss.py
 
-     - name: Commit & Push updated state
+      - name: Commit & Push updated state
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
