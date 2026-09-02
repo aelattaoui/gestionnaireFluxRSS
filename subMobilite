@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+    <outline title="Mobilité" text="Mobilité">
+      <outline type="rss" title="ZDNET" text="ZDNET" htmlUrl="https://www.zdnet.fr/feed" xmlUrl="https://www.zdnet.fr/feed"/>
+    </outline>
+  </body>
+</opml>
