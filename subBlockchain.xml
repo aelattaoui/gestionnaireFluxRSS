@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Blockchain &amp; Enterprise Subscriptions</title>
+  </head>
+  <body>
+    <outline title="Blockchain" text="Blockchain">
+      <!-- Usages Entreprise, Infrastructure & Open Source -->
+      <outline type="rss" title="Hyperledger Foundation" text="Hyperledger Foundation" htmlUrl="https://www.hyperledger.org/blog" xmlUrl="https://www.hyperledger.org/feed"/>
+      <outline type="rss" title="Consensys Blog" text="Consensys Blog" htmlUrl="https://consensys.io/blog" xmlUrl="https://consensys.io/blog/rss.xml"/>
+      <!-- Actualité globale & Tech -->
+      <outline type="rss" title="CoinDesk" text="CoinDesk" htmlUrl="https://www.coindesk.com/" xmlUrl="https://www.coindesk.com/arc/outboundfeeds/rss/"/>
+      <outline type="rss" title="Cointelegraph (FR)" text="Cointelegraph (FR)" htmlUrl="https://fr.cointelegraph.com/" xmlUrl="https://fr.cointelegraph.com/rss"/>
+      <outline type="rss" title="Journal du Coin" text="Journal du Coin" htmlUrl="https://journalducoin.com/" xmlUrl="https://journalducoin.com/feed/"/>
+    </outline>
+  </body>
+</opml>
