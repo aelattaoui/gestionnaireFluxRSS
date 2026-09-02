@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+   <outline title="Optimisation du SI" text="Optimisation du SI">
+    <outline type="rss" title="InfoQ" text="InfoQ" htmlUrl="https://www.infoq.com/feed" xmlUrl="https://www.infoq.com/feed"/>
+   </outline>
+  </body>
+</opml>

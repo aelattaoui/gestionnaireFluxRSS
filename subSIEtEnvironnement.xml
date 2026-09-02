@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+    <outline title="SI et environnement" text="SI et environnement">
+      <outline type="rss" title="Green IT" text="Green IT" htmlUrl="https://www.greenit.fr/feed/" xmlUrl="https://www.greenit.fr/feed/"/>
+      <outline type="rss" title="The Shift Project" text="The Shift Project" htmlUrl="https://theshiftproject.org/feed/" xmlUrl="https://theshiftproject.org/feed/"/>
+    </outline>
+  </body>
+</opml>

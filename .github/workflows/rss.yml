@@ -2,8 +2,11 @@ name: RSS to Discord
 
 on:
   schedule:
-    - cron: '0 * * * *' # S'exécute toutes les heures
-  workflow_dispatch: # Permet le déclenchement manuel
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -24,7 +27,14 @@ jobs:
 
       - name: Run RSS Script
         env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_BIGDATA: ${{ secrets.DISCORD_WEBHOOK_BIGDATA }}
+          DISCORD_WEBHOOK_CYBERSECURITE: ${{ secrets.DISCORD_WEBHOOK_CYBERSECURITE }}
+          DISCORD_WEBHOOK_DEVELOPPEMENT: ${{ secrets.DISCORD_WEBHOOK_DEVELOPPEMENT }}
+          DISCORD_WEBHOOK_MANAGEMENT: ${{ secrets.DISCORD_WEBHOOK_MANAGEMENT }}
+          DISCORD_WEBHOOK_MOBILITE: ${{ secrets.DISCORD_WEBHOOK_MOBILITE }}
+          DISCORD_WEBHOOK_OPTIMISATION_SI: ${{ secrets.DISCORD_WEBHOOK_OPTIMISATION_SI }}
+          DISCORD_WEBHOOK_SI_ENVIRONNEMENT: ${{ secrets.DISCORD_WEBHOOK_SI_ENVIRONNEMENT }}
+          DISCORD_WEBHOOK_IA: ${{ secrets.DISCORD_WEBHOOK_IA }}
         run: python fetch_rss.py
 
       - name: Commit & Push updated state
@@ -32,4 +42,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add seen_articles.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Chore: Update seen articles" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Chore: Update seen articles"
+            git push
+          fi
