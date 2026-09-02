@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+    <outline title="Management et stratégie" text="Management et stratégie">
+      <outline type="rss" title="Comments on: Blog Posts" text="Comments on: Blog Posts" htmlUrl="https://scaledagile.com/blog/feed/" xmlUrl="https://scaledagile.com/blog/feed/"/>
+      <outline type="rss" title="&amp;#34;&amp;#34;méthodes agiles&amp;#34; OR &amp;#34;Agile methodology&amp;#34; Scrum SAFe&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;méthodes agiles&amp;#34; OR &amp;#34;Agile methodology&amp;#34; Scrum SAFe&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22m%C3%A9thodes+agiles%22+OR+%22Agile+methodology%22+Scrum+SAFe&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22m%C3%A9thodes+agiles%22+OR+%22Agile+methodology%22+Scrum+SAFe&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+      <outline type="rss" title="&amp;#34;&amp;#34;management&amp;#34; entreprise leadership stratégie RH&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;management&amp;#34; entreprise leadership stratégie RH&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22management%22+entreprise+leadership+strat%C3%A9gie+RH&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22management%22+entreprise+leadership+strat%C3%A9gie+RH&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+      <outline type="rss" title="&amp;#34;&amp;#34;gestion de projet informatique&amp;#34; OR &amp;#34;IT project management&amp;#34; pilotage SI&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;gestion de projet informatique&amp;#34; OR &amp;#34;IT project management&amp;#34; pilotage SI&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22gestion+de+projet+informatique%22+OR+%22IT+project+management%22+pilotage+SI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22gestion+de+projet+informatique%22+OR+%22IT+project+management%22+pilotage+SI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+      <outline type="rss" title="&amp;#34;&amp;#34;gouvernance des si&amp;#34; OR &amp;#34;gouvernance du système d'information&amp;#34; COBIT ITIL DSI&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;gouvernance des si&amp;#34; OR &amp;#34;gouvernance du système d'information&amp;#34; COBIT ITIL DSI&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22gouvernance+des+si%22+OR+%22gouvernance+du+syst%C3%A8me+d%27information%22+COBIT+ITIL+DSI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22gouvernance+des+si%22+OR+%22gouvernance+du+syst%C3%A8me+d%27information%22+COBIT+ITIL+DSI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+    </outline>
+  </body>
+</opml>
