@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+
+
+<outline title="Big data" text="Big data">
+<outline type="rss" title="SQL Authority with Pinal Dave" text="SQL Authority with Pinal Dave" htmlUrl="https://blog.sqlauthority.com/feed/" xmlUrl="https://blog.sqlauthority.com/feed/"/>
+<outline type="rss" title="KDnuggets" text="KDnuggets" htmlUrl="https://www.kdnuggets.com/feed" xmlUrl="https://www.kdnuggets.com/feed"/>
+<outline type="rss" title="Articles Archive – SQLServerCentral" text="Articles Archive – SQLServerCentral" htmlUrl="https://www.sqlservercentral.com/feed" xmlUrl="https://www.sqlservercentral.com/feed"/>
+<outline type="rss" title="Towards Data Science" text="Towards Data Science" htmlUrl="https://towardsdatascience.com/feed/" xmlUrl="https://towardsdatascience.com/feed/"/>
+</outline>
+<outline title="Développement" text="Développement">
+<outline type="rss" title="Martin Fowler" text="Martin Fowler" htmlUrl="https://martinfowler.com/feed.atom" xmlUrl="https://martinfowler.com/feed.atom"/>
+<outline type="rss" title="The GitHub Blog" text="The GitHub Blog" htmlUrl="https://github.blog/feed/" xmlUrl="https://github.blog/feed/"/>
+<outline type="rss" title="Inside Java" text="Inside Java" htmlUrl="https://inside.java/feed.xml" xmlUrl="https://inside.java/feed.xml"/>
+<outline type="rss" title="Angular.love Blog (EN)" text="Angular.love Blog (EN)" htmlUrl="https://angular.love/feed.xml" xmlUrl="https://angular.love/feed.xml"/>
+<outline type="rss" title="Demystifying COBOL Programming - Medium" text="Demystifying COBOL Programming - Medium" htmlUrl="https://medium.com/feed/demystifying-cobol" xmlUrl="https://medium.com/feed/demystifying-cobol"/>
+</outline>
+<outline title="Cybersécurité" text="Cybersécurité">
+<outline type="rss" title="The Hacker News" text="The Hacker News" htmlUrl="https://feeds.feedburner.com/TheHackersNews" xmlUrl="https://feeds.feedburner.com/TheHackersNews"/>
+<outline type="rss" title="CERT-FR" text="CERT-FR" htmlUrl="https://www.cert.ssi.gouv.fr/feed/" xmlUrl="https://www.cert.ssi.gouv.fr/feed/"/>
+<outline type="rss" title="OWASP" text="OWASP" htmlUrl="https://owasp.org/feed.xml" xmlUrl="https://owasp.org/feed.xml"/>
+</outline>
+<outline title="Optimisation du SI" text="Optimisation du SI">
+<outline type="rss" title="InfoQ" text="InfoQ" htmlUrl="https://www.infoq.com/feed" xmlUrl="https://www.infoq.com/feed"/>
+</outline>
+<outline title="SI et environnement" text="SI et environnement">
+<outline type="rss" title="Green IT" text="Green IT" htmlUrl="https://www.greenit.fr/feed/" xmlUrl="https://www.greenit.fr/feed/"/>
+<outline type="rss" title="The Shift Project" text="The Shift Project" htmlUrl="https://theshiftproject.org/feed/" xmlUrl="https://theshiftproject.org/feed/"/>
+</outline>
+<outline title="Intelligence artificielle" text="Intelligence artificielle">
+<outline type="rss" title="Artificial intelligence – MIT Technology Review" text="Artificial intelligence – MIT Technology Review" htmlUrl="https://www.technologyreview.com/topic/artificial-intelligence/feed" xmlUrl="https://www.technologyreview.com/topic/artificial-intelligence/feed"/>
+<outline type="rss" title="OpenAI News" text="OpenAI News" htmlUrl="https://openai.com/news/rss.xml" xmlUrl="https://openai.com/news/rss.xml"/>
+</outline>
+<outline title="Mobilité" text="Mobilité">
+<outline type="rss" title="ZDNET" text="ZDNET" htmlUrl="https://www.zdnet.fr/feed" xmlUrl="https://www.zdnet.fr/feed"/>
+</outline>
+<outline title="Management et stratégie" text="Management et stratégie">
+<outline type="rss" title="Comments on: Blog Posts" text="Comments on: Blog Posts" htmlUrl="https://scaledagile.com/blog/feed/" xmlUrl="https://scaledagile.com/blog/feed/"/>
+<outline type="rss" title="&amp;#34;&amp;#34;méthodes agiles&amp;#34; OR &amp;#34;Agile methodology&amp;#34; Scrum SAFe&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;méthodes agiles&amp;#34; OR &amp;#34;Agile methodology&amp;#34; Scrum SAFe&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22m%C3%A9thodes+agiles%22+OR+%22Agile+methodology%22+Scrum+SAFe&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22m%C3%A9thodes+agiles%22+OR+%22Agile+methodology%22+Scrum+SAFe&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+<outline type="rss" title="&amp;#34;&amp;#34;management&amp;#34; entreprise leadership stratégie RH&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;management&amp;#34; entreprise leadership stratégie RH&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22management%22+entreprise+leadership+strat%C3%A9gie+RH&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22management%22+entreprise+leadership+strat%C3%A9gie+RH&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+<outline type="rss" title="&amp;#34;&amp;#34;gestion de projet informatique&amp;#34; OR &amp;#34;IT project management&amp;#34; pilotage SI&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;gestion de projet informatique&amp;#34; OR &amp;#34;IT project management&amp;#34; pilotage SI&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22gestion+de+projet+informatique%22+OR+%22IT+project+management%22+pilotage+SI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22gestion+de+projet+informatique%22+OR+%22IT+project+management%22+pilotage+SI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+<outline type="rss" title="&amp;#34;&amp;#34;gouvernance des si&amp;#34; OR &amp;#34;gouvernance du système d'information&amp;#34; COBIT ITIL DSI&amp;#34; - Google Actualités" text="&amp;#34;&amp;#34;gouvernance des si&amp;#34; OR &amp;#34;gouvernance du système d'information&amp;#34; COBIT ITIL DSI&amp;#34; - Google Actualités" htmlUrl="https://news.google.com/rss/search?q=%22gouvernance+des+si%22+OR+%22gouvernance+du+syst%C3%A8me+d%27information%22+COBIT+ITIL+DSI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr" xmlUrl="https://news.google.com/rss/search?q=%22gouvernance+des+si%22+OR+%22gouvernance+du+syst%C3%A8me+d%27information%22+COBIT+ITIL+DSI&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+</outline>
+
+  </body>
+</opml>
