@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>Feedreader Online Subscriptions</title>
+  </head>
+  <body>
+
+
+<outline title="Big data" text="Big data">
+<outline type="rss" title="SQL Authority with Pinal Dave" text="SQL Authority with Pinal Dave" htmlUrl="https://blog.sqlauthority.com/feed/" xmlUrl="https://blog.sqlauthority.com/feed/"/>
+<outline type="rss" title="KDnuggets" text="KDnuggets" htmlUrl="https://www.kdnuggets.com/feed" xmlUrl="https://www.kdnuggets.com/feed"/>
+<outline type="rss" title="Articles Archive – SQLServerCentral" text="Articles Archive – SQLServerCentral" htmlUrl="https://www.sqlservercentral.com/feed" xmlUrl="https://www.sqlservercentral.com/feed"/>
+<outline type="rss" title="Towards Data Science" text="Towards Data Science" htmlUrl="https://towardsdatascience.com/feed/" xmlUrl="https://towardsdatascience.com/feed/"/>
+</outline>
+
+  </body>
+</opml>
