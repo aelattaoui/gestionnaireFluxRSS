@@ -15,7 +15,8 @@ THEMES_CONFIG = {
     "subMobilite.xml": "DISCORD_WEBHOOK_MOBILITE",
     "subOptimisationSI.xml": "DISCORD_WEBHOOK_OPTIMISATION_SI",
     "subSIEtEnvironnement.xml": "DISCORD_WEBHOOK_SI_ENVIRONNEMENT",
-    "subIA.xml": "DISCORD_WEBHOOK_IA",  # À ajuster selon le nom exact de ton fichier IA
+    "subIA.xml": "DISCORD_WEBHOOK_IA",  # À ajuster selon le nom exact de ton fichier IA,
+    "subBlockchain.xml": "DISCORD_WEBHOOK_BLOCKCHAIN"
 }
 
 
