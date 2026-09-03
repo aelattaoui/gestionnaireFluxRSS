@@ -4,7 +4,9 @@ import re
 import xml.etree.ElementTree as ET
 import feedparser
 import requests
+import time
 from google import genai
+from google.genai.errors import APIError
 
 SEEN_FILE = "seen_articles.json"
 
@@ -100,16 +102,27 @@ Rédige une synthèse globale et concise en français sous forme de 3 à 5 puces
 Mets en valeur les tendances marquantes ou les annonces majeures.
 Sois direct et professionnel. N'ajoute pas d'introduction ni de conclusion, donne directement les puces.
 """
+    for attempt in range(1, retries, +1):
+        try:
+            response = client.models.generate_content(
+                model='gemini-3.6-flash',
+                contents=prompt,
+            )
+            return response.text
+        except APIError as e:
+            # On cible les erreurs de surcharge (503) ou de débit (429)
+            if e.code in [503, 429] and attempt < retries:
+                print(f"Serveur Gemini indisponible (code {e.code}). Tentative {attempt}/{retries} dans {delay}s...")
+                time.sleep(delay)
+                delay *= 2  # On double le temps d'attente à chaque tentative (5s, 10s...)
+            else:
+                print(f"Erreur API Gemini non récupérable pour {theme_name} : {e}")
+                return None
+        except Exception as e:
+            print(f"Erreur inattendue pour {theme_name} : {e}")
+            return None
 
-    try:
-        response = client.models.generate_content(
-            model='gemini-3.6-flash',
-            contents=prompt,
-        )
-        return response.text
-    except Exception as e:
-        print(f"Erreur lors de la génération Gemini pour {theme_name} : {e}")
-        return None
+    return None
 
 
 def envoyer_article_discord(webhook_url, entry):
