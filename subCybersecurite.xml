@@ -5,9 +5,12 @@
   </head>
   <body>
     <outline title="Cybersécurité" text="Cybersécurité">
-    <outline type="rss" title="The Hacker News" text="The Hacker News" htmlUrl="https://feeds.feedburner.com/TheHackersNews" xmlUrl="https://feeds.feedburner.com/TheHackersNews"/>
-    <outline type="rss" title="CERT-FR" text="CERT-FR" htmlUrl="https://www.cert.ssi.gouv.fr/feed/" xmlUrl="https://www.cert.ssi.gouv.fr/feed/"/>
-    <outline type="rss" title="OWASP" text="OWASP" htmlUrl="https://owasp.org/feed.xml" xmlUrl="https://owasp.org/feed.xml"/>
+      <outline type="rss" title="The Hacker News" text="The Hacker News" htmlUrl="https://feeds.feedburner.com/TheHackersNews" xmlUrl="https://feeds.feedburner.com/TheHackersNews"/>
+      <outline type="rss" title="CERT-FR" text="CERT-FR" htmlUrl="https://www.cert.ssi.gouv.fr/feed/" xmlUrl="https://www.cert.ssi.gouv.fr/feed/"/>
+      <outline type="rss" title="OWASP" text="OWASP" htmlUrl="https://owasp.org/feed.xml" xmlUrl="https://owasp.org/feed.xml"/>
+      <outline type="rss" title="CISA Cybersecurity Advisories" text="CISA Cybersecurity Advisories" htmlUrl="https://www.cisa.gov/cybersecurity-advisories/all.xml" xmlUrl="https://www.cisa.gov/cybersecurity-advisories/all.xml"/>
+      <outline type="rss" title="Google Project Zero" text="Google Project Zero" htmlUrl="https://googleprojectzero.blogspot.com/feeds/posts/default" xmlUrl="https://googleprojectzero.blogspot.com/feeds/posts/default"/>
+      <outline type="rss" title="Microsoft Security Blog" text="Microsoft Security Blog" htmlUrl="https://www.microsoft.com/en-us/security/blog/feed/" xmlUrl="https://www.microsoft.com/en-us/security/blog/feed/"/>
     </outline>
  </body>
 </opml>
