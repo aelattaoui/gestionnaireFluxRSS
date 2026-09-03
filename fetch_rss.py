@@ -84,7 +84,7 @@ def extraire_contenu_article(entry):
 
     return contenu_propre
 
-def generer_synthese_theme(theme_name, articles):
+def generer_synthese_theme(theme_name, articles, retries=3, delay=5):
     if not client or not articles:
         return None
 
