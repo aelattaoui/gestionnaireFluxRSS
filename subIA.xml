@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>AI Subscriptions</title>
+  </head>
+  <body>
+    <outline title="Intelligence Artificielle" text="Intelligence Artificielle">
+      <outline type="rss" title="MIT Tech Review AI" text="MIT Tech Review AI" htmlUrl="https://www.technologyreview.com/" xmlUrl="https://www.technologyreview.com/topic/artificial-intelligence/feed/"/>
+      <outline type="rss" title="TechCrunch AI" text="TechCrunch AI" htmlUrl="https://techcrunch.com/" xmlUrl="https://techcrunch.com/category/artificial-intelligence/feed/"/>
+      <outline type="rss" title="OpenAI Blog" text="OpenAI Blog" htmlUrl="https://openai.com/" xmlUrl="https://openai.com/news/rss.xml"/>
+      <outline type="rss" title="Google DeepMind" text="Google DeepMind" htmlUrl="https://deepmind.google/" xmlUrl="https://deepmind.google/blog/rss.xml"/>
+      <outline type="rss" title="Google News IA (FR)" text="Google News IA (FR)" htmlUrl="https://news.google.com/" xmlUrl="https://news.google.com/rss/search?q=Intelligence+Artificielle&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+    </outline>
+  </body>
+</opml>
