@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import xml.etree.ElementTree as ET
 import feedparser
 import requests
@@ -56,6 +57,30 @@ def extract_rss_urls(opml_file):
         print(f"Erreur de lecture de {opml_file} : {e}")
     return urls
 
+def nettoyer_texte(html_text):
+    """Supprime les balises HTML basiques pour n'envoyer que du texte propre à Gemini."""
+    if not html_text:
+        return ""
+    texte_propre = re.sub(r'<[^>]+>', '', html_text)
+    return ' '.join(texte_propre.split())
+
+
+def extraire_contenu_article(entry):
+    """Extrait et nettoie le meilleur texte disponible dans l'entrée RSS (summary, description ou content)."""
+    contenu = ""
+    if entry.get("summary"):
+        contenu = entry.get("summary")
+    elif entry.get("description"):
+        contenu = entry.get("description")
+    elif entry.get("content"):
+        contenu = entry.get("content")[0].get("value", "")
+
+    contenu_propre = nettoyer_texte(contenu)
+
+    if len(contenu_propre) < 10:
+        return entry.get("title", "Pas de description disponible.")
+
+    return contenu_propre
 
 def generer_synthese_theme(theme_name, articles):
     if not client or not articles:
@@ -116,6 +141,7 @@ def envoyer_synthese_discord(webhook_url, theme_name, synthese_text):
 
 
 def main():
+    print(f"Gemini Key présente : {bool(os.environ.get('GEMINI_API_KEY'))}")
     seen = load_seen()
     is_first_run = len(seen) == 0  # Sécurité pour le premier lancement
 
@@ -142,16 +168,21 @@ def main():
                 envoyer_article_discord(webhook_url, entry)
 
                 # 2. Ajout à la liste mémoire + préparation de la synthèse
+                description = extraire_contenu_article(entry)
+
                 seen.add(article_id)
                 nouveaux_articles_du_theme.append({
-                    "title": entry.get("title", ""),
-                    "summary": entry.get("summary", entry.get("description", ""))
+                    "title": entry.get("title", "Sans titre"),
+                    "summary": description
                 })
 
         # 3. Génération de la synthèse si on a au moins 2 nouveaux articles dans ce thème
+        print(f"Thème {theme_name} : {len(nouveaux_articles_du_theme)} nouveaux articles détectés.")
+        
         if len(nouveaux_articles_du_theme) >= 2 and not is_first_run:
             print(f"Génération de la synthèse pour le thème {theme_name} ({len(nouveaux_articles_du_theme)} articles)...")
             synthese = generer_synthese_theme(theme_name, nouveaux_articles_du_theme)
+            print(f"Résultat Gemini : {synthese}")
             if synthese:
                 envoyer_synthese_discord(webhook_url, theme_name, synthese)
 
