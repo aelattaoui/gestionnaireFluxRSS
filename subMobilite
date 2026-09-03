@@ -5,7 +5,11 @@
   </head>
   <body>
     <outline title="Mobilité" text="Mobilité">
-      <outline type="rss" title="ZDNET" text="ZDNET" htmlUrl="https://www.zdnet.fr/feed" xmlUrl="https://www.zdnet.fr/feed"/>
+      <outline type="rss" title="Android Developers Blog" text="Android Developers Blog" htmlUrl="https://android-developers.googleblog.com/" xmlUrl="https://android-developers.googleblog.com/feeds/posts/default"/>
+      <outline type="rss" title="Apple Developer News" text="Apple Developer News" htmlUrl="https://developer.apple.com/news/" xmlUrl="https://developer.apple.com/news/rss/news.rss"/>
+      <outline type="rss" title="Mobile World Live" text="Mobile World Live" htmlUrl="https://www.mobileworldlive.com/" xmlUrl="https://www.mobileworldlive.com/feed/"/>
+      <outline type="rss" title="GSMA Newsroom" text="GSMA Newsroom" htmlUrl="https://www.gsma.com/newsroom/" xmlUrl="https://www.gsma.com/newsroom/feed/"/>
+      <outline type="rss" title="Ericsson Blog" text="Ericsson Blog" htmlUrl="https://www.ericsson.com/en/blog" xmlUrl="https://www.ericsson.com/en/blog/rss-feed"/>
     </outline>
   </body>
 </opml>

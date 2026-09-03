@@ -6,6 +6,12 @@
   <body>
    <outline title="Optimisation du SI" text="Optimisation du SI">
     <outline type="rss" title="InfoQ" text="InfoQ" htmlUrl="https://www.infoq.com/feed" xmlUrl="https://www.infoq.com/feed"/>
+    <outline type="rss" title="CNCF Blog" text="CNCF Blog" htmlUrl="https://www.cncf.io/blog/feed" xmlUrl="https://www.cncf.io/blog/feed"/>
+    <outline type="rss" title="AWS Architecture Blog" text="AWS Architecture Blog" htmlUrl="https://aws.amazon.com/blogs/architecture/feed" xmlUrl="https://aws.amazon.com/blogs/architecture/feed"/>
+    <outline type="rss" title="Cloudflare Blog" text="Cloudflare Blog" htmlUrl="https://blog.cloudflare.com/rss" xmlUrl="https://blog.cloudflare.com/rss"/>
+    <outline type="rss" title="FinOps Foundation" text="FinOps Foundation" htmlUrl="https://www.finops.org/feed" xmlUrl="https://www.finops.org/feed"/>
+    <outline type="rss" title="Red Hat Blog" text="Red Hat Blog" htmlUrl="https://www.redhat.com/en/rss/blog" xmlUrl="https://www.redhat.com/en/rss/blog"/> 
+     
    </outline>
   </body>
 </opml>

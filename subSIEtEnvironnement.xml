@@ -7,6 +7,9 @@
     <outline title="SI et environnement" text="SI et environnement">
       <outline type="rss" title="Green IT" text="Green IT" htmlUrl="https://www.greenit.fr/feed/" xmlUrl="https://www.greenit.fr/feed/"/>
       <outline type="rss" title="The Shift Project" text="The Shift Project" htmlUrl="https://theshiftproject.org/feed/" xmlUrl="https://theshiftproject.org/feed/"/>
+      <outline type="rss" title="EcoInfo – CNRS" text="EcoInfo – CNRS" htmlUrl="https://ecoinfo.cnrs.fr/" xmlUrl="https://ecoinfo.cnrs.fr/feed/"/>
+      <outline type="rss" title="The Green Web Foundation" text="The Green Web Foundation" htmlUrl="https://www.thegreenwebfoundation.org/" xmlUrl="https://www.thegreenwebfoundation.org/feed/"/>
+      <outline type="rss" title="Commission européenne – stratégie numérique" text="Commission européenne – stratégie numérique" htmlUrl="https://digital-strategy.ec.europa.eu/" xmlUrl="https://digital-strategy.ec.europa.eu/en/rss.xml"/>
     </outline>
   </body>
 </opml>

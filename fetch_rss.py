@@ -1,12 +1,16 @@
-import json
 import os
+import json
+import re
 import xml.etree.ElementTree as ET
 import feedparser
 import requests
+import time
+from google import genai
+from google.genai.errors import APIError
 
 SEEN_FILE = "seen_articles.json"
 
-# Mappage : Nom du fichier XML -> Nom de la variable Secret GitHub
+# Configuration des thèmes (Fichier XML -> Variable Webhook Discord)
 THEMES_CONFIG = {
     "subBigData.xml": "DISCORD_WEBHOOK_BIGDATA",
     "subCybersecurite.xml": "DISCORD_WEBHOOK_CYBERSECURITE",
@@ -15,9 +19,13 @@ THEMES_CONFIG = {
     "subMobilite.xml": "DISCORD_WEBHOOK_MOBILITE",
     "subOptimisationSI.xml": "DISCORD_WEBHOOK_OPTIMISATION_SI",
     "subSIEtEnvironnement.xml": "DISCORD_WEBHOOK_SI_ENVIRONNEMENT",
-    "subIA.xml": "DISCORD_WEBHOOK_IA",  # À ajuster selon le nom exact de ton fichier IA,
-    "subBlockchain.xml": "DISCORD_WEBHOOK_BLOCKCHAIN"
+    "subIA.xml": "DISCORD_WEBHOOK_IA",
+    "subBlockchain.xml": "DISCORD_WEBHOOK_BLOCKCHAIN",
 }
+
+# Initialisation sécurisée du client Gemini
+gemini_key = os.environ.get("GEMINI_API_KEY")
+client = genai.Client(api_key=gemini_key) if gemini_key else None
 
 
 def load_seen():
@@ -28,77 +36,171 @@ def load_seen():
             data = json.load(f)
             return set(data) if isinstance(data, list) else set()
     except (json.JSONDecodeError, ValueError):
-        # En cas de fichier corrompu, on repart sur un ensemble vide sans crasher
         return set()
 
 
 def save_seen(seen):
-  with open(SEEN_FILE, "w", encoding="utf-8") as f:
-    json.dump(list(seen), f, indent=2)
+    with open(SEEN_FILE, "w", encoding="utf-8") as f:
+        json.dump(sorted(list(seen)), f, indent=2, ensure_ascii=False)
 
 
-def get_feeds_from_opml(opml_path):
-  if not os.path.exists(opml_path):
-    return []
-  tree = ET.parse(opml_path)
-  root = tree.getroot()
-  feeds = []
-  for outline in root.findall(".//outline[@xmlUrl]"):
-    title = outline.attrib.get("title") or outline.attrib.get("text")
-    xml_url = outline.attrib.get("xmlUrl")
-    if xml_url:
-      feeds.append((title, xml_url))
-  return feeds
+def extract_rss_urls(opml_file):
+    urls = []
+    if not os.path.exists(opml_file):
+        return urls
+    try:
+        tree = ET.parse(opml_file)
+        root = tree.getroot()
+        for elem in root.iter("outline"):
+            xml_url = elem.attrib.get("xmlUrl")
+            if xml_url:
+                urls.append(xml_url)
+    except Exception as e:
+        print(f"Erreur de lecture de {opml_file} : {e}")
+    return urls
+
+def nettoyer_texte(html_text):
+    """Supprime les balises HTML basiques pour n'envoyer que du texte propre à Gemini."""
+    if not html_text:
+        return ""
+    texte_propre = re.sub(r'<[^>]+>', '', html_text)
+    return ' '.join(texte_propre.split())
 
 
-def process_theme(xml_file, env_var, seen):
-  webhook_url = os.environ.get(env_var)
-  if not webhook_url:
-    print(f"Skipped {xml_file}: Secret {env_var} non défini.")
-    return
+def extraire_contenu_article(entry):
+    """Extrait et nettoie le meilleur texte disponible dans l'entrée RSS (summary, description ou content)."""
+    contenu = ""
+    if entry.get("summary"):
+        contenu = entry.get("summary")
+    elif entry.get("description"):
+        contenu = entry.get("description")
+    elif entry.get("content"):
+        contenu = entry.get("content")[0].get("value", "")
 
-  feeds = get_feeds_from_opml(xml_file)
-  if not feeds:
-    return
+    contenu_propre = nettoyer_texte(contenu)
 
-  print(f"--- Traitement de {xml_file} ---")
-  for feed_title, feed_url in feeds:
-    parsed = feedparser.parse(feed_url)
-    for entry in reversed(parsed.entries[:5]):
-      entry_id = entry.get("id") or entry.get("link")
-      if entry_id in seen:
-        continue
+    if len(contenu_propre) < 10:
+        return entry.get("title", "Pas de description disponible.")
 
-      title = entry.get("title", "Sans titre")
-      link = entry.get("link", "")
+    return contenu_propre
 
-      payload = {
-          "embeds": [{
-              "title": title[:256],
-              "url": link,
-              "color": 0x5865F2,
-              "footer": {"text": f"Source : {feed_title}"},
-          }]
-      }
+def generer_synthese_theme(theme_name, articles, retries=3, delay=5):
+    if not client or not articles:
+        return None
 
-      res = requests.post(webhook_url, json=payload)
-      if res.status_code in (200, 204):
-        seen.add(entry_id)
-        print(f"[{xml_file}] Envoyé : {title}")
-      else:
-        print(f"[{xml_file}] Échec ({res.status_code}) : {title}")
+    texte_articles = ""
+    for idx, a in enumerate(articles, 1):
+        texte_articles += f"{idx}. Titre : {a['title']}\n   Résumé : {a.get('summary', 'Pas de description')}\n\n"
+
+    prompt = f"""
+Tu es un expert en veille technologique pour le domaine '{theme_name}'.
+Voici la liste des nouveaux articles parus :
+
+{texte_articles}
+
+Rédige une synthèse globale et concise en français sous forme de 3 à 5 puces clés (bullet points).
+Mets en valeur les tendances marquantes ou les annonces majeures.
+Sois direct et professionnel. N'ajoute pas d'introduction ni de conclusion, donne directement les puces.
+"""
+    for attempt in range(1, retries, +1):
+        try:
+            response = client.models.generate_content(
+                model='gemini-3.6-flash',
+                contents=prompt,
+            )
+            return response.text
+        except APIError as e:
+            # On cible les erreurs de surcharge (503) ou de débit (429)
+            if e.code in [503, 429] and attempt < retries:
+                print(f"Serveur Gemini indisponible (code {e.code}). Tentative {attempt}/{retries} dans {delay}s...")
+                time.sleep(delay)
+                delay *= 2  # On double le temps d'attente à chaque tentative (5s, 10s...)
+            else:
+                print(f"Erreur API Gemini non récupérable pour {theme_name} : {e}")
+                return None
+        except Exception as e:
+            print(f"Erreur inattendue pour {theme_name} : {e}")
+            return None
+
+    return None
+
+
+def envoyer_article_discord(webhook_url, entry):
+    payload = {"content": f"**{entry.title}**\n{entry.link}"}
+    try:
+        requests.post(webhook_url, json=payload)
+    except Exception as e:
+        print(f"Erreur d'envoi Discord : {e}")
+
+
+def envoyer_synthese_discord(webhook_url, theme_name, synthese_text):
+    if not webhook_url or not synthese_text:
+        return
+
+    payload = {
+        "embeds": [
+            {
+                "title": f"📊 Synthèse flash — {theme_name}",
+                "description": synthese_text,
+                "color": 3447003,
+                "footer": {"text": "Généré automatiquement par Gemini 2.5 Flash"}
+            }
+        ]
+    }
+    try:
+        requests.post(webhook_url, json=payload)
+    except Exception as e:
+        print(f"Erreur d'envoi de la synthèse Discord : {e}")
 
 
 def main():
-  seen = load_seen()
+    print(f"Gemini Key présente : {bool(os.environ.get('GEMINI_API_KEY'))}")
+    seen = load_seen()
+    is_first_run = len(seen) == 0  # Sécurité pour le premier lancement
 
-  for xml_file, env_var in THEMES_CONFIG.items():
-    process_theme(xml_file, env_var, seen)
+    for opml_file, webhook_env_var in THEMES_CONFIG.items():
+        webhook_url = os.environ.get(webhook_env_var)
+        if not webhook_url:
+            continue
 
-  save_seen(seen)
+        theme_name = opml_file.replace("sub", "").replace(".xml", "")
+        rss_urls = extract_rss_urls(opml_file)
+        nouveaux_articles_du_theme = []
+
+        for url in rss_urls:
+            feed = feedparser.parse(url)
+            # On limite aux 5 plus récents par flux
+            entries = feed.entries[:5] if is_first_run else feed.entries
+
+            for entry in entries:
+                article_id = entry.get("id", entry.get("link"))
+                if not article_id or article_id in seen:
+                    continue
+
+                # 1. Envoi du lien brut sur Discord
+                envoyer_article_discord(webhook_url, entry)
+
+                # 2. Ajout à la liste mémoire + préparation de la synthèse
+                description = extraire_contenu_article(entry)
+
+                seen.add(article_id)
+                nouveaux_articles_du_theme.append({
+                    "title": entry.get("title", "Sans titre"),
+                    "summary": description
+                })
+
+        # 3. Génération de la synthèse si on a au moins 2 nouveaux articles dans ce thème
+        print(f"Thème {theme_name} : {len(nouveaux_articles_du_theme)} nouveaux articles détectés.")
+        
+        if len(nouveaux_articles_du_theme) >= 2 and not is_first_run:
+            print(f"Génération de la synthèse pour le thème {theme_name} ({len(nouveaux_articles_du_theme)} articles)...")
+            synthese = generer_synthese_theme(theme_name, nouveaux_articles_du_theme)
+            print(f"Résultat Gemini : {synthese}")
+            if synthese:
+                envoyer_synthese_discord(webhook_url, theme_name, synthese)
+
+    save_seen(seen)
 
 
 if __name__ == "__main__":
-  main()
-if __name__ == "__main__":
-  main()
+    main()

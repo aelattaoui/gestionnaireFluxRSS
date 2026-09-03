@@ -9,7 +9,11 @@
       <outline type="rss" title="TechCrunch AI" text="TechCrunch AI" htmlUrl="https://techcrunch.com/" xmlUrl="https://techcrunch.com/category/artificial-intelligence/feed/"/>
       <outline type="rss" title="OpenAI Blog" text="OpenAI Blog" htmlUrl="https://openai.com/" xmlUrl="https://openai.com/news/rss.xml"/>
       <outline type="rss" title="Google DeepMind" text="Google DeepMind" htmlUrl="https://deepmind.google/" xmlUrl="https://deepmind.google/blog/rss.xml"/>
-      <outline type="rss" title="Google News IA (FR)" text="Google News IA (FR)" htmlUrl="https://news.google.com/" xmlUrl="https://news.google.com/rss/search?q=Intelligence+Artificielle&amp;hl=fr&amp;gl=FR&amp;ceid=FR:fr"/>
+      <outline text="Microsoft Research" title="Microsoft Research" type="rss" xmlUrl="https://www.microsoft.com/en-us/research/feed/"/>
+      <outline text="Berkeley Artificial Intelligence Research" title="Berkeley Artificial Intelligence Research" type="rss" xmlUrl="https://bair.berkeley.edu/blog/feed.xml"/>
+      <outline text="Google Research" title="Google Research" type="rss" xmlUrl="https://research.google/blog/rss/"/>
+      <outline text="IEEE Spectrum – Artificial Intelligence" title="IEEE Spectrum – Artificial Intelligence" type="rss" xmlUrl="https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss"/>
+      <outline text="CNIL" title="CNIL" type="rss" xmlUrl="https://www.cnil.fr/fr/rss.xml"/>
     </outline>
   </body>
 </opml>
