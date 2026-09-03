@@ -10,6 +10,11 @@
     <outline type="rss" title="Inside Java" text="Inside Java" htmlUrl="https://inside.java/feed.xml" xmlUrl="https://inside.java/feed.xml"/>
     <outline type="rss" title="Angular.love Blog (EN)" text="Angular.love Blog (EN)" htmlUrl="https://angular.love/feed.xml" xmlUrl="https://angular.love/feed.xml"/>
     <outline type="rss" title="Demystifying COBOL Programming - Medium" text="Demystifying COBOL Programming - Medium" htmlUrl="https://medium.com/feed/demystifying-cobol" xmlUrl="https://medium.com/feed/demystifying-cobol"/>
+    <outline type="rss" title="Mozilla Hacks" text="Mozilla Hacks" htmlUrl="https://hacks.mozilla.org/" xmlUrl="https://hacks.mozilla.org/feed/"/>
+    <outline type="rss" title="Stack Overflow Blog" text="Stack Overflow Blog" htmlUrl="https://stackoverflow.blog/" xmlUrl="https://stackoverflow.blog/feed/"/>
+    <outline type="rss" title="Meta Engineering" text="Meta Engineering" htmlUrl="https://engineering.fb.com/" xmlUrl="https://engineering.fb.com/feed/"/>
+    <outline type="rss" title="Spring Blog" text="Spring Blog" htmlUrl="https://spring.io/blog" xmlUrl="https://spring.io/blog.atom"/>
+    <outline type="rss" title="Angular Blog officiel" text="Angular Blog officiel" htmlUrl="https://blog.angular.dev/" xmlUrl="https://blog.angular.dev/feed"/>  
     </outline>
  </body>
 </opml>
