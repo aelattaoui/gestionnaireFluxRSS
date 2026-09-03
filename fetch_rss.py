@@ -3,8 +3,10 @@ import os
 import xml.etree.ElementTree as ET
 import feedparser
 import requests
+from google import genai
 
 SEEN_FILE = "seen_articles.json"
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 # Mappage : Nom du fichier XML -> Nom de la variable Secret GitHub
 THEMES_CONFIG = {
@@ -87,6 +89,17 @@ def process_theme(xml_file, env_var, seen):
         print(f"[{xml_file}] Envoyé : {title}")
       else:
         print(f"[{xml_file}] Échec ({res.status_code}) : {title}")
+
+def generer_synthese(articles, theme):
+    # On prépare le texte à résumer
+    contenu = "\n".join([f"- {a['title']}: {a['summary']}" for a in articles])
+    prompt = f"Tu es un expert en {theme}. Résume les actualités suivantes sous forme de 3 puces synthétiques et claires en français :\n\n{contenu}"
+    
+    response = client.models.generate_content(
+        model='gemini-2.5-flash',
+        contents=prompt,
+    )
+    return response.text
 
 
 def main():
