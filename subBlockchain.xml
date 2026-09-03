@@ -8,10 +8,13 @@
       <!-- Usages Entreprise, Infrastructure & Open Source -->
       <outline type="rss" title="Hyperledger Foundation" text="Hyperledger Foundation" htmlUrl="https://www.hyperledger.org/blog" xmlUrl="https://www.hyperledger.org/feed"/>
       <outline type="rss" title="Consensys Blog" text="Consensys Blog" htmlUrl="https://consensys.io/blog" xmlUrl="https://consensys.io/blog/rss.xml"/>
-      <!-- Actualité globale & Tech -->
-      <outline type="rss" title="CoinDesk" text="CoinDesk" htmlUrl="https://www.coindesk.com/" xmlUrl="https://www.coindesk.com/arc/outboundfeeds/rss/"/>
-      <outline type="rss" title="Cointelegraph (FR)" text="Cointelegraph (FR)" htmlUrl="https://fr.cointelegraph.com/" xmlUrl="https://fr.cointelegraph.com/rss"/>
-      <outline type="rss" title="Journal du Coin" text="Journal du Coin" htmlUrl="https://journalducoin.com/" xmlUrl="https://journalducoin.com/feed/"/>
+      <outline text="LF Decentralized Trust" title="LF Decentralized Trust" type="rss" xmlUrl="https://www.lfdecentralizedtrust.org/blog/rss.xml"/>
+    <outline text="R3" title="R3" type="rss" xmlUrl="https://r3.com/blog/rss.xml"/>
+    <outline text="Kaleido – Enterprise Blockchain Blog" title="Kaleido – Enterprise Blockchain Blog" type="rss" xmlUrl="https://www.kaleido.io/blockchain-blog/rss.xml"/>
+    <outline text="INATBA" title="INATBA" type="rss" xmlUrl="https://www.inatba.org/feed/"/>
+    <outline text="Commission européenne – Stratégie numérique" title="Commission européenne – Stratégie numérique" type="rss" xmlUrl="https://digital-strategy.ec.europa.eu/en/rss.xml"/>
+    <outline text="Hyperledger Fabric – versions" title="Hyperledger Fabric – versions" type="rss" xmlUrl="https://github.com/hyperledger/fabric/releases.atom"/>
+    <outline text="Hyperledger Besu – versions" title="Hyperledger Besu – versions" type="rss" xmlUrl="https://github.com/hyperledger/besu/releases.atom"/>
     </outline>
   </body>
 </opml>
